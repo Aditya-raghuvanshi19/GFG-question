@@ -33,26 +33,42 @@ class Main {
 
 class Solution {
     public int longestSubarray(int[] arr, int k) {
-        Map<Integer,Integer> presum=new HashMap<>();
-        int len=arr.length;
-        int sum=0;
-        int maxlen=0;
-        for(int i=0;i<len;i++){
-            sum+=arr[i];
-            if(sum==k)
-            maxlen=Math.max(maxlen,i+1);
-            
-            int rem=sum-k;
+        // int left=0;
+        // int right=0;
+        // int sum=arr[0],maxlen=0;
+        // int n=arr.length;
+        // while(right<n){
+        //     while(sum>k && left<=right){
+        //         sum -= arr[left];
+        //         left++;
+        //     }
+        //     if(sum==k){
+        //         maxlen=Math.max(maxlen,right-left+1);
+        //     }
+        //     right++;
+        //     if(right<n)
+        //     sum+=arr[right];
+        // }
+        // return maxlen;
+        Map<Integer, Integer>presum = new HashMap<>();
+        int n = arr.length;
+        int maxlen = 0;
+        int sum = 0;
+        for(int i = 0;i<n;i++){
+            sum += arr[i];
+            if(sum == k){
+                maxlen = Math.max(maxlen, i+1);
+            }
+        
+            int rem = sum -k;
             if(presum.containsKey(rem)){
-                maxlen=Math.max(maxlen,i-presum.get(rem));
+               int len = i-presum.get(rem);
+                maxlen = Math.max(maxlen, len);
             }
             if(!presum.containsKey(sum)){
                 presum.put(sum,i);
             }
         }
         return maxlen;
-        
-        
-        
     }
 }
