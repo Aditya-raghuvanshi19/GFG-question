@@ -41,8 +41,8 @@ class Solution {
     public static int[] lcmAndGcd(int a, int b) {
         int[] arr=new int[2];
         arr[1]=gcd(a,b);
-        arr[0]=(a*b)/arr[1];
-        return arr;
+        arr[0]=(a/arr[1])*b;// to avoid overflow first divide than multiply, if multiply first then divide
+        return arr;         //overflow occur
     }
 }
 
