@@ -25,6 +25,9 @@ class Driver {
 
 class Solution {
     public static String reverseString(String s) {
+        //always use this approach no other way
+        //beast is convert in char array and now this is same apply for array reverse
+        //so you can use these way for both arrray and string
         int i=0;
         int j=s.length()-1;
         char arr[]=s.toCharArray();
@@ -35,6 +38,7 @@ class Solution {
             i++;
             j--;
         }
-        return new String(arr);
+        return new String(arr);//no use array.toString(arr)because that return soime hash cvalue of aadaress of arrray 
+        //better to use newString() create a new String of arr
     }
 }
