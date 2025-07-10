@@ -23,7 +23,7 @@ class Solution {
         
         int count=1, freetime=arr[0].end;//freetime is to store the last meeting end time
         
-        ArrayList<Integer> order=new ArrayList();//this is for extra step and store oder in which meeting held . extra for interview
+        ArrayList<Integer> order=new ArrayList();//this is for extra step and store oder in which meeting held . Follow up question for interview
         order.add(arr[0].pos);
         
         for(int i=0;i<arr.length;i++){
